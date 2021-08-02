@@ -1,6 +1,9 @@
-const app = require('./src/app')
-const secrets = require ('./secrets.json')
+const router =  require('express').Router()
 
-app.listen(secrets.port, () => {
-    console.log(`Server is up and running on http://localhost:${secrets.port}`)
-})
+const hort = require('./hort')
+const category = require('./category')
+
+router.use('/hort', hort)
+router.use('/category', category)
+
+module.exports = router
